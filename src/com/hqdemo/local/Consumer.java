@@ -23,7 +23,7 @@ public class Consumer implements Runnable{
 		if(sessionID!=null)
 			msg=getMessage();//get message from the server regarding topic
 
-		System.out.println("Consumer status: Topic="+topic+" ID="+sessionID+" Message="+msg+"\r\n");
+		
 	}
 
 	public void getSessionID(){
@@ -42,12 +42,14 @@ public class Consumer implements Runnable{
 			String line = null;
 			while (  (line = br.readLine()) != null )
 				buffer.append(line);
+			String id=buffer.toString();
+			System.out.println("[Consumer status] new session ID is obtained. ID="+id+".");
 
 			this.setSessionID(buffer.toString());
 		}
 		catch(Throwable t) {
 			t.printStackTrace();
-			System.out.println("Failed to get session ID.");
+			System.out.println("[Consumer status] Failed to get session ID.");
 		}
 		finally {
 			try { is.close(); } catch(Throwable t) {}
@@ -73,12 +75,13 @@ public class Consumer implements Runnable{
 			String line = null;
 			while (  (line = br.readLine()) != null )
 				buffer.append(line);
-
-			return buffer.toString();
+			String msg=buffer.toString();
+			System.out.println("[Consumer status] A new message is received. Topic="+topic+" ID="+sessionID+" Message="+msg);
+			return msg;
 		}
 		catch(Throwable t) {
 			t.printStackTrace();
-			System.out.println("Failed to get message from the server.");
+			System.out.println("[Consumer status] Failed to get a message from the server.");
 		}
 		finally {
 			try { is.close(); } catch(Throwable t) {}
@@ -108,7 +111,7 @@ public class Consumer implements Runnable{
 		}
 		catch(Throwable t) {
 			t.printStackTrace();
-			System.out.println("Failed to get message from the server.");
+			System.out.println("[Consumer status] Failed to get message from the server.");
 		}
 		finally {
 			try { is.close(); } catch(Throwable t) {}

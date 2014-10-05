@@ -57,9 +57,9 @@ public class Broker extends HttpServlet {
 		PrintWriter printWriter  = response.getWriter();
 		if(request.getParameter("sessionID")==null)//the first connection of a new consumer. Assign a new ID to it
 		{
-			printWriter.println(Integer.toString(++sessionID));
+			printWriter.println(Integer.toString(++sessionID));printWriter.close();
 			id_topic_offset_map.put(sessionID,new ConcurrentHashMap<String,Integer>());
-			System.out.println("[Consumer] New session ID is assigned. ID="+sessionID+" Offset="+id_topic_offset_map.get(sessionID));
+			System.out.println("[Consumer Request] New session ID is assigned. ID="+sessionID);
 		}
 		else{//if the Consumer sent in a message reques (that contains sessionID and topic)
 			int id=Integer.parseInt(request.getParameter("sessionID"));
@@ -68,15 +68,16 @@ public class Broker extends HttpServlet {
 			try {
 				message = getMessage(id,topic);//get message from the queue for the given topic and sessionID
 				if(message!=null)
-					System.out.println("[Consumer] New message is consumed. SessionID="+id+" Offset="+id_topic_offset_map.get(id).get(topic)+" Topic="+topic+" Message="+message);
+					System.out.println("[Consumer Request] A new message is consumed. SessionID="+id+" Offset="+id_topic_offset_map.get(id).get(topic)+" Topic="+topic+" Message="+message);
 				else
-					System.out.println("[Consumer] Invalid request, no message is consumed.");
+					System.out.println("[Consumer Request] Invalid request, no message is consumed.");
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
 			printWriter.println(message);
+			printWriter.close();
 		}	
 
 	}
@@ -89,10 +90,12 @@ public class Broker extends HttpServlet {
 		String topic = request.getParameter("topic");
 		String message = request.getParameter("message");
 		if(topic!=null&&message!=null)
-		{this.addMessage(message,topic);//add message to the corresponding message queue
-		System.out.println("[Producer] New message added. Topic="+ topic+" Message="+message);}
+		{
+			this.addMessage(message,topic);//add message to the corresponding message queue
+			System.out.println("[Producer Request] New message added. Topic="+ topic+" Message="+message);
+		}
 		else
-			System.out.println("[Producer] Null topic or message");
+			System.out.println("[Producer Request] Null topic or message received by broker.");
 	}
 
 	private void addMessage(String message, String topic){

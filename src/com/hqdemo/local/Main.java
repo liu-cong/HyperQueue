@@ -21,11 +21,8 @@ public class Main {
 				threadPool.execute(new Consumer("topic"+String.valueOf(i)));
 				threadPool.execute(new Consumer("topic"+String.valueOf(i+1)));
 			}
+			threadPool.shutdown();
 
-			//threadPool.execute(producer1);
-			//threadPool.execute(producer2);
-			//threadPool.execute(consumer1);
-			//threadPool.execute(consumer2);
 
 			/*
 			 * activate this block to test the broker in a sequential order

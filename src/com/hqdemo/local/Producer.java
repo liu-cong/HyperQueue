@@ -24,7 +24,7 @@ public class Producer implements Runnable{
 	@Override
 	public void run() {
 		postMessage();//use HTTP POST method to post message to the Broker
-		System.out.println("Producer status: topic="+topic+" Message="+message+"\r\n");
+		
 	}
 
 	public void postMessage() {//fire HTTP POST method to post message to the server. to send a custom message, either call
@@ -40,10 +40,11 @@ public class Producer implements Runnable{
 			output = con.getOutputStream();
 			output.write(query.getBytes(charset));//post message to the Broker
 			input=con.getInputStream();
+			System.out.println("[Producer status] A new message is posted. Topic="+topic+" Message="+message);
 		}
 		catch(Throwable t) {
 			t.printStackTrace();
-			System.out.println("Failed to post message on the server.");
+			System.out.println("[Producer status] Failed to post the message to the server.");
 		}
 		finally {
 			try { input.close();output.close(); } catch(Throwable t) {}
@@ -67,7 +68,7 @@ public class Producer implements Runnable{
 		}
 		catch(Throwable t) {
 			t.printStackTrace();
-			System.out.println("Failed to post message on the server.");
+			System.out.println("[Producer status] Failed to post the message to the server.");
 		}
 		finally {
 			try { input.close();output.close(); } catch(Throwable t) {}
