@@ -1,0 +1,173 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1048576 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:62), pid=26696, tid=11988
+#
+# JRE version:  (8.0_20-b26) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.20-b23 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000001cc2800):  JavaThread "Unknown thread" [_thread_in_vm, id=11988, stack(0x0000000001ba0000,0x0000000001ca0000)]
+
+Stack: [0x0000000001ba0000,0x0000000001ca0000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x3152fa]
+V  [jvm.dll+0x265d03]
+V  [jvm.dll+0x266943]
+V  [jvm.dll+0x286de4]
+C  [KERNELBASE.dll+0xdd9b6]
+C  [ntdll.dll+0xab1a9]
+C  [ntdll.dll+0x8caaf]
+C  [ntdll.dll+0x9d9ad]
+C  [ntdll.dll+0x4b203]
+C  [ntdll.dll+0x9cb6e]
+V  [jvm.dll+0x205611]
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x0000000001cc2800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=11988, stack(0x0000000001ba0000,0x0000000001ca0000)]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 38400K, used 665K [0x00000000d5f00000, 0x00000000d8980000, 0x0000000100000000)
+  eden space 33280K, 2% used [0x00000000d5f00000,0x00000000d5fa6670,0x00000000d7f80000)
+  from space 5120K, 0% used [0x00000000d8480000,0x00000000d8480000,0x00000000d8980000)
+  to   space 5120K, 0% used [0x00000000d7f80000,0x00000000d7f80000,0x00000000d8480000)
+ ParOldGen       total 87552K, used 0K [0x0000000081c00000, 0x0000000087180000, 0x00000000d5f00000)
+  object space 87552K, 0% used [0x0000000081c00000,0x0000000081c00000,0x0000000087180000)
+ Metaspace       used 674K, capacity 4480K, committed 4480K, reserved 1056768K
+  class space    used 66K, capacity 384K, committed 384K, reserved 1048576K
+
+Card table byte_map: [0x0000000011190000,0x0000000011590000] byte_map_base: 0x0000000010d82000
+
+Marking Bits: (ParMarkBitMap*) 0x000000005982b460
+ Begin Bits: [0x0000000012040000, 0x0000000013fd0000)
+ End Bits:   [0x0000000013fd0000, 0x0000000015f60000)
+
+Polling page: 0x0000000000410000
+
+CodeCache: size=245760Kb used=327Kb max_used=327Kb free=245432Kb
+ bounds [0x0000000001dd0000, 0x0000000002040000, 0x0000000010dd0000]
+ total_blobs=56 nmethods=0 adapters=37
+ compilation: enabled
+
+Compilation events (0 events):
+No events
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.028 loading class java/lang/Short
+Event: 0.028 loading class java/lang/Short done
+Event: 0.028 loading class java/lang/Integer
+Event: 0.028 loading class java/lang/Integer done
+Event: 0.028 loading class java/lang/Long
+Event: 0.028 loading class java/lang/Long done
+Event: 0.029 loading class java/lang/NullPointerException
+Event: 0.029 loading class java/lang/NullPointerException done
+Event: 0.029 loading class java/lang/ArithmeticException
+Event: 0.029 loading class java/lang/ArithmeticException done
+
+
+Dynamic libraries:
+0x00007ff6fa5c0000 - 0x00007ff6fa5f4000 	C:\Program Files\Java\jdk1.8.0_20\bin\javaw.exe
+0x00007ff8c0c50000 - 0x00007ff8c0dfa000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff8c0780000 - 0x00007ff8c08ba000 	C:\WINDOWS\system32\KERNEL32.DLL
+0x00007ff8be190000 - 0x00007ff8be29f000 	C:\WINDOWS\system32\KERNELBASE.dll
+0x00007ff8bcbf0000 - 0x00007ff8bcc78000 	C:\WINDOWS\system32\apphelp.dll
+0x00007ff8b58e0000 - 0x00007ff8b592f000 	C:\WINDOWS\AppPatch\AppPatch64\AcGenral.DLL
+0x00007ff8c0b40000 - 0x00007ff8c0be7000 	C:\WINDOWS\system32\msvcrt.dll
+0x00007ff8bde00000 - 0x00007ff8bde2b000 	C:\WINDOWS\SYSTEM32\SspiCli.dll
+0x00007ff8be700000 - 0x00007ff8be751000 	C:\WINDOWS\system32\SHLWAPI.dll
+0x00007ff8be830000 - 0x00007ff8be9a1000 	C:\WINDOWS\system32\USER32.dll
+0x00007ff8be4d0000 - 0x00007ff8be648000 	C:\WINDOWS\system32\ole32.dll
+0x00007ff8be9b0000 - 0x00007ff8bfdcf000 	C:\WINDOWS\system32\SHELL32.dll
+0x00007ff8bd630000 - 0x00007ff8bd64e000 	C:\WINDOWS\SYSTEM32\USERENV.dll
+0x00007ff8c06d0000 - 0x00007ff8c0775000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x00007ff8bca20000 - 0x00007ff8bca3b000 	C:\WINDOWS\SYSTEM32\MPR.dll
+0x00007ff8c02d0000 - 0x00007ff8c0407000 	C:\WINDOWS\system32\RPCRT4.dll
+0x00007ff8c0bf0000 - 0x00007ff8c0c47000 	C:\WINDOWS\SYSTEM32\sechost.dll
+0x00007ff8c08c0000 - 0x00007ff8c0a96000 	C:\WINDOWS\SYSTEM32\combase.dll
+0x00007ff8c0580000 - 0x00007ff8c06c4000 	C:\WINDOWS\system32\GDI32.dll
+0x00007ff8bdfc0000 - 0x00007ff8bdfd4000 	C:\WINDOWS\SYSTEM32\profapi.dll
+0x00007ff8bc8c0000 - 0x00007ff8bc95f000 	C:\WINDOWS\SYSTEM32\SHCORE.dll
+0x00007ff8c0170000 - 0x00007ff8c01a4000 	C:\WINDOWS\system32\IMM32.DLL
+0x00007ff8c0410000 - 0x00007ff8c0549000 	C:\WINDOWS\system32\MSCTF.dll
+0x00007ff8bc490000 - 0x00007ff8bc6ea000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.9600.17031_none_6242a4b3ecbb55a1\COMCTL32.dll
+0x00000000598e0000 - 0x00000000599b2000 	C:\Program Files\Java\jdk1.8.0_20\jre\bin\msvcr100.dll
+0x0000000059050000 - 0x00000000598a8000 	C:\Program Files\Java\jdk1.8.0_20\jre\bin\server\jvm.dll
+0x00007ff8b8f10000 - 0x00007ff8b8f19000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff8bcb50000 - 0x00007ff8bcb6f000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff8be820000 - 0x00007ff8be827000 	C:\WINDOWS\system32\PSAPI.DLL
+0x00007ff8c01b0000 - 0x00007ff8c0208000 	C:\WINDOWS\system32\WS2_32.dll
+0x00007ff8bcae0000 - 0x00007ff8bcb0a000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ff8c0570000 - 0x00007ff8c0579000 	C:\WINDOWS\system32\NSI.dll
+0x00007ff8be140000 - 0x00007ff8be18a000 	C:\WINDOWS\SYSTEM32\cfgmgr32.dll
+0x00007ff8bce70000 - 0x00007ff8bce96000 	C:\WINDOWS\SYSTEM32\DEVOBJ.dll
+0x0000000059040000 - 0x000000005904f000 	C:\Program Files\Java\jdk1.8.0_20\jre\bin\verify.dll
+0x0000000059010000 - 0x0000000059038000 	C:\Program Files\Java\jdk1.8.0_20\jre\bin\java.dll
+0x0000000058ff0000 - 0x0000000059006000 	C:\Program Files\Java\jdk1.8.0_20\jre\bin\zip.dll
+0x00007ff8bb600000 - 0x00007ff8bb788000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=Cp1252 
+java_command: com.iWellSite.test.Main
+java_class_path (initial): D:\Research\Google Drive\Programming\Eclipse Projects\Interview Questions\HyperQueue\build\classes;D:\Research\Google Drive\Interview Question\New folder\tomcat-7.0.34-preconfigured\apache-tomcat-7.0.34\lib\annotations-api.jar;D:\Research\Google Drive\Interview Question\New folder\tomcat-7.0.34-preconfigured\apache-tomcat-7.0.34\lib\catalina-ant.jar;D:\Research\Google Drive\Interview Question\New folder\tomcat-7.0.34-preconfigured\apache-tomcat-7.0.34\lib\catalina-ha.jar;D:\Research\Google Drive\Interview Question\New folder\tomcat-7.0.34-preconfigured\apache-tomcat-7.0.34\lib\catalina-tribes.jar;D:\Research\Google Drive\Interview Question\New folder\tomcat-7.0.34-preconfigured\apache-tomcat-7.0.34\lib\catalina.jar;D:\Research\Google Drive\Interview Question\New folder\tomcat-7.0.34-preconfigured\apache-tomcat-7.0.34\lib\ecj-4.2.1.jar;D:\Research\Google Drive\Interview Question\New folder\tomcat-7.0.34-preconfigured\apache-tomcat-7.0.34\lib\el-api.jar;D:\Research\Google Drive\Interview Question\New folder\tomcat-7.0.34-preconfigured\apache-tomcat-7.0.34\lib\jasper-el.jar;D:\Research\Google Drive\Interview Question\New folder\tomcat-7.0.34-preconfigured\apache-tomcat-7.0.34\lib\jasper.jar;D:\Research\Google Drive\Interview Question\New folder\tomcat-7.0.34-preconfigured\apache-tomcat-7.0.34\lib\jsp-api.jar;D:\Research\Google Drive\Interview Question\New folder\tomcat-7.0.34-preconfigured\apache-tomcat-7.0.34\lib\servlet-api.jar;D:\Research\Google Drive\Interview Question\New folder\tomcat-7.0.34-preconfigured\apache-tomcat-7.0.34\lib\tomcat-api.jar;D:\Research\Google Drive\Interview Question\New folder\tomcat-7.0.34-preconfigured\apache-tomcat-7.0.34\lib\tomcat-coyote.jar;D:\Research\Google Drive\Interview Question\New folder\tomcat-7.0.34-preconfigured\apache-tomcat-7.0.34\lib\tomcat-dbcp.jar;D:\Research\Google Drive\Interview Question\New folder\tomcat-7.0.34-preconfigured\apache-tomcat-7.0.34\lib\tomcat-i18n-es.jar;D:\Research\Google D
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+CLASSPATH=.;C:\Program Files (x86)\QuickTime\QTSystem\QTJava.zip
+PATH=D:/Research/Google Drive/Programming/eclipse/jre/bin/server;D:/Research/Google Drive/Programming/eclipse/jre/bin;D:/Research/Google Drive/Programming/eclipse/jre/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;P:\Program Files\CTEX\UserData\miktex\bin;P:\Program Files\CTEX\MiKTeX\miktex\bin;P:\Program Files\CTEX\CTeX\ctex\bin;P:\Program Files\CTEX\CTeX\cct\bin;P:\Program Files\CTEX\CTeX\ty\bin;P:\Program Files\CTEX\Ghostscript\gs9.04\bin;P:\Program Files\CTEX\GSview\gsview;P:\Program Files\CTEX\WinEdt;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files (x86)\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\Tools\Binn\;C:\Program Files\Microsoft SQL Server\100\DTS\Binn\;C:\Program Files (x86)\Common Files\Ulead Systems\MPEG;C:\Program Files (x86)\QuickTime\QTSystem\;P:\Emgu\emgucv-windows-universal-cuda 2.9.0.1922\bin\x64;C:\Program Files (x86)\Cracklock\Bin;C:\Program Files (x86)\IDM Computer Solutions\UEStudio\;D:\Research\Google Drive\Programming\eclipse;
+USERNAME=Administrator
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8.1 , 64 bit Build 9600 
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, erms, ht, tsc, tscinvbit, tscinv
+
+Memory: 4k page, physical 8271536k(3361044k free), swap 11417264k(4936k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.20-b23) for windows-amd64 JRE (1.8.0_20-b26), built on Jul 30 2014 13:51:23 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Sat Oct 04 22:19:11 2014
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
