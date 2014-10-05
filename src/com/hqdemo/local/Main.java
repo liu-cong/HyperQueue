@@ -8,10 +8,7 @@ public class Main {
 	private static ThreadFactory factory=new ThreadManager();
 	public static void main(String [] args){
 		String topic1="topic1",msg1="messag1",topic2="topic2",msg2="message2";
-		Producer producer1=new Producer(topic1,msg1);
-		Producer producer2=new Producer(topic2,msg2);
-		Consumer consumer1=new Consumer(topic1);
-		Consumer consumer2=new Consumer(topic2);
+
 		int poolsize=20;//size of the thread pool
 		try{
 
@@ -32,6 +29,10 @@ public class Main {
 
 			/*
 			 * activate this block to test the broker in a sequential order
+		    Producer producer1=new Producer(topic1,msg1);
+		    Producer producer2=new Producer(topic2,msg2);
+	      	Consumer consumer1=new Consumer(topic1);
+		    Consumer consumer2=new Consumer(topic2);
 			consumer1.getSessionID();//initialize the consumers
 			consumer2.getSessionID();
 
